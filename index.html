@@ -1,17 +1,63 @@
 <!DOCTYPE html>
-<html>
-<head><title>Assignment Portal</title></head>
-<body>
-    <h2>Submit Assignment</h2>
-    <form id="form">
-        <input type="text" id="name" placeholder="Name" required>
-        <input type="text" id="regNo" placeholder="Reg No (e.g., FA23-BSE-001)">
-        <input type="text" id="title" placeholder="Title" required>
-        <input type="text" id="url" placeholder="URL" required>
-        <button type="submit">Submit</button>
-    </form>
-    <p id="msg"></p>
-    <ul id="list"></ul>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment Portal</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen p-6 font-sans">
+    <div class="max-w-2xl mx-auto">
+        
+        <!-- Header -->
+        <div class="bg-indigo-600 rounded-t-lg p-6 shadow-md text-white text-center">
+            <h2 class="text-2xl font-bold">Assignment Submission Portal</h2>
+            <p class="text-indigo-200 mt-1">Submit your lab midterms below</p>
+        </div>
+
+        <!-- Form Card -->
+        <div class="bg-white rounded-b-lg shadow-md p-6 mb-8">
+            <form id="form" class="space-y-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700">Student Name</label>
+                    <input type="text" id="name" placeholder="Enter your full name" required 
+                           class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 border p-2 outline-none transition-colors">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700">Registration Number</label>
+                    <input type="text" id="regNo" placeholder="e.g., FA23-BSE-001" 
+                           class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 border p-2 outline-none transition-colors">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700">Assignment Title</label>
+                    <input type="text" id="title" placeholder="e.g., DevOps Lab Mid" required 
+                           class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 border p-2 outline-none transition-colors">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700">Submission URL</label>
+                    <input type="text" id="url" placeholder="https://github.com/..." required 
+                           class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 border p-2 outline-none transition-colors">
+                </div>
+                
+                <!-- Dynamic Message Box -->
+                <div id="msg" class="hidden p-3 rounded-md text-sm font-medium transition-all"></div>
+
+                <button type="submit" 
+                        class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors">
+                    Submit Assignment
+                </button>
+            </form>
+        </div>
+
+        <!-- Submissions List -->
+        <div class="bg-white rounded-lg shadow-md p-6">
+            <h3 class="text-lg font-semibold text-gray-900 mb-4 border-b pb-2">Recent Submissions</h3>
+            <ul id="list" class="space-y-3">
+                <li class="text-gray-500 italic text-sm" id="empty-state">No submissions yet.</li>
+            </ul>
+        </div>
+    </div>
     <script src="app.js"></script>
 </body>
 </html>
